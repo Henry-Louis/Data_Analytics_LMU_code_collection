@@ -8,6 +8,12 @@ from sklearn.cluster import KMeans
 from joblib import dump
 
 
+# Define the directory where your data is located.
+# Change this to your specific directory.
+WORKING_DIR = r"E:\Your\working\direction"
+INPUT_DIR = r"Your\Folder\with\all_speech_data\*.csv"
+
+
 def string_to_list(s):
     """Converts a string representation of a list into an actual list."""
     return ast.literal_eval(s)
@@ -110,10 +116,10 @@ def save_model(model, path):
 
 if __name__ == "__main__":
     # Set up working direction
-    os.chdir(r"E:\Your\Working\Path")
+    os.chdir(WORKING_DIR)
 
     # Get file paths to speech data
-    files_directions = glob.glob(r"Your\Folder\with\all_speech_data\*.csv")
+    files_directions = glob.glob(INPUT_DIR)
 
     # Load all speech files and merge them together
     df_list = []
